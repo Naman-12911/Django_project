@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse,redirect
-from easy.models import  Contact,Sinup
+from easy.models import Contact, Sinup
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -78,8 +78,6 @@ def sinup(request):
     else:
         return render(request, 'sinup.html')
 def contact(request):
-    #if request.user.is_anonymous:
-     #   return redirect("/login")
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -91,10 +89,15 @@ def contact(request):
         if not name.isalnum():
             messages.warning(request, "name should contain only alphabet")
             return redirect('contact')
+        if request.user.is_anonymous:
+            messages.warning(request, "please first login yourself")
+            return redirect("/login")
+
         contact = Contact(name=name, email=email, phone=phone, text=text)
         contact.save()
-        return redirect("/")
         messages.success(request, 'Your message has been sent!')
+        return redirect("/")
+
     return render(request, 'contact.html')
 def news(request):
     news_api_request = requests.get("http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=16b2973603f04e4eac23d452bc0d40fb")
