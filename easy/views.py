@@ -41,9 +41,9 @@ def sinup(request):
         password = request.POST['password']
         #if not username.isalnum():
          #   messages.warning(request, "name should contain only alphabet")
-        if username.isalnum():
-            messages.warning(request, "please entre coreect username with numbers")
-            return redirect('sinup')
+        #if username.isalnum():
+          #  messages.warning(request, "please entre correct username with numbers")
+           # return redirect('sinup')
         if len(phone) != 10:
             messages.warning(request, "entre correct phone number")
             return redirect('sinup')
@@ -72,7 +72,7 @@ def sinup(request):
          #   messages.warning(request, 'you are not signinig in!')
 
         #messages.success(request, 'Your are sinup now!')
-        sinup = Sinup(name=name, email=email, phone=phone, password=password)
+        sinup = Sinup(name=name, email=email, phone=phone, password=password,username=username)
         sinup.save()
         return redirect('/')
     else:
