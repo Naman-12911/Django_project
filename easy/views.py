@@ -50,11 +50,10 @@ def sinup(request):
         if len(password) < 5:
             messages.warning(request,"entre strong password")
             return redirect('sinup')
-        # create the user
-        myuser = User.objects.create_user(username,email,password)
-        myuser.phone = phone
-        myuser.name = name
-        messages.success(request,"your account has been create succesfully")
+        if User.objects.filter(username__iexact=username).exists():
+            messages.warning(request, "Entre another usernmae this was taken")
+            return redirect('sinup')
+
         # rechapcha
         clientkey = request.POST['g-recaptcha-response']
         secretkey = '6Lf6H20aAAAAAE1ZPPqFCRJYnJpAVn9C4paWjCNv'
@@ -72,9 +71,15 @@ def sinup(request):
          #   messages.warning(request, 'you are not signinig in!')
 
         #messages.success(request, 'Your are sinup now!')
+
+        # create the user
+        myuser = User.objects.create_user(username, email, password)
+        myuser.phone = phone
+        myuser.name = name
+        messages.success(request, "Now you can login yourself")
         sinup = Sinup(name=name, email=email, phone=phone, password=password,username=username)
         sinup.save()
-        return redirect('/')
+        return redirect('login')
     else:
         return render(request, 'sinup.html')
 def contact(request):
