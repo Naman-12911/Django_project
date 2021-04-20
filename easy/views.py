@@ -61,7 +61,7 @@ def sinup(request):
             'secret': secretkey,
             'response': clientkey
         }
-        r = requests.post('https://www.google.com/recaptcha/api/siteverify ', data=capthacaData)
+        #r = requests.post('https://www.google.com/recaptcha/api/siteverify ', data=capthacaData)
         #response = json.loads(r.text)
         #verify = response['success']
         #print('your sucess is', verify)
