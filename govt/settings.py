@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6qrmk*c9uau9xzr30u-x89n&ahgn%z+v&#ddb0mm$vc$3f=_-8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['daily-news-latest.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -73,7 +73,13 @@ WSGI_APPLICATION = 'govt.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -83,6 +89,7 @@ DATABASES = {
         }
     }
 }
+"""
 
 
 # Password validation
