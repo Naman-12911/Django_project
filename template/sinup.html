@@ -12,7 +12,7 @@
                 <a class="nav-link active btl" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sin up</a>
             </li>
         </ul>
-        <form method="post" action="/sinup">
+        <form method="post" id="myform">
             {% csrf_token %}
                 <div class="form px-4">
                     <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>

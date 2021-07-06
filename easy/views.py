@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 import requests
 import json
+from django.core.mail import send_mail
+import random
+from django.conf import settings
 from simplejson import JSONDecodeError
 
 # Create your views here.
@@ -14,9 +17,9 @@ def bussiness(request):
     return render(request, 'bussiness.html', {'bussiness_api': bussiness_api})
 def loginhandle(request):
     if request.method == "POST":
-        loginusername = request.POST['loginusername']
+        email = request.POST['email']
         loginpassword = request.POST['loginpassword']
-        #print(loginusername, loginpassword)
+        loginusername = User.objects.get(email=email.lower()).username
         # create a authetication
         user = authenticate(username=loginusername, password=loginpassword)
         # a backend authetication
@@ -32,6 +35,7 @@ def logouthandle(request):
     logout(request)
     messages.success(request,'you suceesfully logout')
     return redirect('login')
+
 def sinup(request):
     if request.method == "POST":
         name = request.POST['name']
@@ -82,6 +86,9 @@ def sinup(request):
         return redirect('login')
     else:
         return render(request, 'sinup.html')
+
+
+
 def contact(request):
     if request.method == "POST":
         name = request.POST.get('name')
