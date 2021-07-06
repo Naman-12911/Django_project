@@ -1,26 +1,11 @@
 
 Django==3.0.5
-django-allauth==0.44.0
 django-email-verification==0.1.0
-django-google-analytics-app==5.0.3
 django-ranged-response==0.2.0
 django-simple-captcha==0.5.13
 
-
-
-gmpy2==2.0.8
-greenlet==0.4.16
-grpcio==1.32.0
 gunicorn==20.1.0
 
-
-pkginfo==1.5.0.1
-
-ply==3.11
-
-
-
-pytest==5.4.3
 python-dateutil==2.8.1
 
 
