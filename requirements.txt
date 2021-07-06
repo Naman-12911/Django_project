@@ -18,26 +18,16 @@ greenlet==0.4.16
 grpcio==1.32.0
 gunicorn==20.1.0
 
-Pillow @ file:///C:/ci/pillow_1594298230227/work
+
 pkginfo==1.5.0.1
 
 ply==3.11
 
-pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
-pycurl==7.43.0.5
-pydantic==1.7.3
-pydocstyle @ file:///tmp/build/80754af9/pydocstyle_1592848020240/work
-pyflakes==2.2.0
 
 
 pytest==5.4.3
 python-dateutil==2.8.1
-seaborn==0.10.1
-selenium==3.141.0
-Send2Trash==1.5.0
-Serializer==0.2.1
-serializers==0.2.4
+
 
 
 
