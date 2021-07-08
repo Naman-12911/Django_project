@@ -10,13 +10,7 @@ class Sinup(models.Model):
     password = models.CharField(max_length=122)
     def __str__(self):
         return self.name
-"""""    
-class login(models.Model):
-    login_username = models.CharField(max_length=122)
-    login_password = models.CharField(max_length=122)
-    def __str__(self):
-        return self.login_username
-      """""
+
 class Contact(models.Model):
     name = models.CharField(max_length=122)
     email = models.CharField(max_length=122)
