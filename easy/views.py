@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse,redirect
-from easy.models import Contact, Sinup
+from .models import Contact, Sinup
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -65,23 +65,23 @@ def sinup(request):
             'secret': secretkey,
             'response': clientkey
         }
-        #r = requests.post('https://www.google.com/recaptcha/api/siteverify ', data=capthacaData)
-        #response = json.loads(r.text)
-        #verify = response['success']
-        #print('your sucess is', verify)
-        #if verify:
-         #   messages.success(request, 'Your message has been sent!')
-        #else:
-         #   messages.warning(request, 'you are not signinig in!')
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify ', data=capthacaData)
+        response = json.loads(r.text)
+        verify = response['success']
+        print('your sucess is', verify)
+        if verify:
+            messages.success(request, 'Your message has been sent!')
+        else:
+            messages.warning(request, 'you are not signinig in!')
 
-        #messages.success(request, 'Your are sinup now!')
+        messages.success(request, 'Your are sinup now!')
 
         # create the user
         myuser = User.objects.create_user(username, email, password)
         myuser.phone = phone
         myuser.name = name
         messages.success(request, "Now you can login yourself")
-        sinup = Sinup(name=name, email=email, phone=phone, password=password,username=username)
+        sinup = Sinup(name=name, email=email, phone=phone,username=username)
         sinup.save()
         return redirect('login')
     else:
