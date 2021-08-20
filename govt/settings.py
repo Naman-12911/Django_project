@@ -21,13 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-#SECRET_KEY = os.environ['SECRECT_KEY']
-SECRET_KEY = "6qrmk*c9uau9xzr30u-x89n&ahgn%z+v&#ddb0mm$vc$3f=_-8"
+SECRET_KEY = os.environ['SECRECT_KEY']
+#SECRET_KEY = "6qrmk*c9uau9xzr30u-x89n&ahgn%z+v&#ddb0mm$vc$3f=_-8"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["daily-news-updates.herokuapp.com","localhost"]
+ALLOWED_HOSTS = ["daily-news-updates.herokuapp.com", "localhost"]
 
 
 # Application definition

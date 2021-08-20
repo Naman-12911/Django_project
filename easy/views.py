@@ -13,7 +13,7 @@ from simplejson import JSONDecodeError
 # Create your views here.
 def bussiness(request):
     #bussiness_api_request = requests.get('http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=16b2973603f04e4eac23d452bc0d40fb')
-    bussiness_api_request = requests.get('https://newsapi.org/v2/everything?q=tesla&from=2021-07-19&sortBy=publishedAt&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
+    bussiness_api_request = requests.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
     bussiness_api = json.loads(bussiness_api_request.content)
     return render(request, 'bussiness.html', {'bussiness_api': bussiness_api})
 def loginhandle(request):
