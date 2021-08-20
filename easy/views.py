@@ -96,16 +96,16 @@ def contact(request):
         if len(phone) != 10:
             messages.warning(request,'please entre correct phone number')
             return redirect('contact')
+        """
         if not name.isalnum():
             messages.warning(request, "name should contain only alphabet")
             return redirect('contact')
-            """
+            
         if request.user.is_anonymous:
             messages.warning(request, "please first login yourself")
             return redirect("/login")
 
         """
-
         contact = Contact(name=name, email=email, phone=phone, text=text)
         contact.save()
         messages.success(request, 'Your message has been sent!')
