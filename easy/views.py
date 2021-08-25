@@ -120,7 +120,25 @@ def news(request):
     return render(request, 'news.html', {'api': api})
 def index(request):
     indian_api_request = requests.get('http://newsapi.org/v2/top-headlines?country=in&apiKey=16b2973603f04e4eac23d452bc0d40fb')
-    #indian_api_request = requests.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
-
     indian_api = json.loads(indian_api_request.content)
     return render(request, 'index.html', {'indian_api': indian_api})
+
+def Entertainment(request):
+    Entertainment_api_request = requests.get('https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
+    Entertainment_api = json.loads(Entertainment_api_request.content)
+    return render(request, 'topheadlines.html', {'Entertainment_api': Entertainment_api})
+
+def sports(request):
+    sports_api_request = requests.get('https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
+    sports_api = json.loads(sports_api_request.content)
+    return render(request, 'sports.html', {'sports_api': sports_api})
+
+def health(request):
+    health_api_request = requests.get('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
+    health_api = json.loads(health_api_request.content)
+    return render(request, 'health.html', {'health_api': health_api})
+
+def science(request):
+    science_api_request = requests.get('https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=bd21a406a18442f684b1bfd1f3bad0df')
+    science_api = json.loads(science_api_request.content)
+    return render(request, 'science.html', {'science_api': science_api})
