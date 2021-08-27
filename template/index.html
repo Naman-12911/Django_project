@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Daily General News{% endblock title %}
+{% block title %}Top headlines{% endblock title %}
 {% block body %}
 {% load static %}
 <link rel='stylesheet' href="{% static 'css/index.css' %}">
@@ -49,10 +49,10 @@
         {% for x in indian_api.articles %}
         <div class="col-md-6 col-lg-4">
             <div class="card mx-30">
-              <img src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
+              <img src="{{x.urlToImage}}" height="250px" class="card-img-top" alt="{{x.source.name}}">
                 <div class="card-body">
-                  <h4 class="card-title">{{x.title}}</h4>
-                  <p class="card-text">{{x.description}}</p>
+                  <h4 class="card-title">{{x.title|truncatechars:70}}</h4>
+                  <p class="card-text">{{x.description|truncatechars:100}}</p>
                   <a href="{{x.url}}" target="_blank" class="btn btn-primary">Read more</a>
                 </div>
             </div>

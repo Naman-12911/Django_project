@@ -45,10 +45,10 @@
           {% for x in health_api.articles %}
           <div class="col-md-6 col-lg-4">
               <div class="card mx-30">
-                <img src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
+                <img src="{{x.urlToImage}}" height="250px" class="card-img-top" alt="{{x.source.name}}">
                   <div class="card-body">
-                    <h5 class="card-title">{{x.title}}</h5>
-                    <p class="card-text">{{x.description}}</p>
+                    <h5 class="card-title">{{x.title|truncatechars:70}}</h5>
+                    <p class="card-text">{{x.description|truncatechars:100}}</p>
                     <a href="{{x.url}}" target="_blank" class="btn btn-primary">Read more</a>
                   </div>
               </div>
