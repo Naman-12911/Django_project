@@ -28,6 +28,7 @@ SECRET_KEY = os.environ['SECRECT_KEY']
 DEBUG = False
 
 
+
 ALLOWED_HOSTS = ["daily-news-updates.herokuapp.com", "localhost"]
 
 
