@@ -140,18 +140,21 @@ USE_L10N = True
 
 USE_TZ = True
 from django.contrib.messages import constants as messages
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-# add manual
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')
-MESSAGE_TAGS = {
-    messages.ERROR: 'danger'
-}
-MEDIA_URL  = "/images/"
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# # add manual
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+# MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')
+# MESSAGE_TAGS = {
+#     messages.ERROR: 'danger'
+# }
+# MEDIA_URL  = "/images/"
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
