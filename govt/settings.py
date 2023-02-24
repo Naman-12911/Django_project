@@ -29,7 +29,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ["daily-news-updates.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = [".vercel.app", "localhost"]
 
 
 # Application definition
